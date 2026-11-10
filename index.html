@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AC Sports · Catálogo</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,800;1,500&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="Estilo y Acciones/style.css">
+</head>
+<body>
+<div class="top">ENTREGAS EN SANTO DOMINGO · REPÚBLICA DOMINICANA</div>
+<nav>
+  <div class="logo" id="brandLogo" role="button" tabindex="0" aria-label="AC Sports"><span class="logo-mark">AC<span class="logo-heart">♡</span></span><small>SPORTS</small></div>
+  <div class="tabs" id="tabs" aria-label="Categorías del catálogo">
+    <button type="button" data-c="todo" class="on">Todo</button>
+    <button type="button" data-c="mujer">Ropa de mujer</button>
+    <button type="button" data-c="hombre">Ropa de hombre</button>
+  </div>
+  <div class="social-links" id="headerSocial" aria-label="Redes sociales de AC Sports"></div>
+  <button type="button" class="btn admin-hidden" id="adminBtn" style="color:var(--gold)">Administrar</button>
+</nav>
+
+<section class="hero">
+  <div class="eyebrow">MOVIMIENTO CON PROPÓSITO</div>
+  <h1>MUÉVETE<em>con estilo.</em></h1>
+  <p>Ropa atlética diseñada para sostener tu ritmo, desde la primera serie hasta el último café del día.</p>
+</section>
+
+<main class="wrap" id="catalogo">
+  <div class="panel" id="panel">
+    <h2 id="formTitle">Agregar artículo</h2>
+    <div class="form">
+      <label>Nombre<input id="fName"></label>
+      <label>Categoría<select id="fCat"><option value="mujer">Mujer</option><option value="hombre">Hombre</option></select></label>
+      <label>Precio (RD$)<input id="fPrice" type="number" min="0"></label>
+      <label>Foto<input id="fImg" type="file" accept="image/*"></label>
+      <fieldset class="size-field" style="grid-column:1/-1">
+        <legend>Tallas disponibles</legend>
+        <div class="size-options" id="fSizes">
+          <label><input type="checkbox" value="XS">XS</label>
+          <label><input type="checkbox" value="S">S</label>
+          <label><input type="checkbox" value="M">M</label>
+          <label><input type="checkbox" value="L">L</label>
+          <label><input type="checkbox" value="XL">XL</label>
+          <label><input type="checkbox" value="XXL">XXL</label>
+        </div>
+      </fieldset>
+      <label class="sold-option admin-only" id="soldFormOption" hidden style="grid-column:1/-1">
+        <input id="fSold" type="checkbox">
+        <span>Marcar como agotado</span>
+      </label>
+      <label style="grid-column:1/-1">Descripción<textarea id="fDesc"></textarea></label>
+    </div>
+    <div style="margin-top:16px;display:flex;gap:10px;flex-wrap:wrap">
+      <button class="go" id="save">Guardar artículo</button>
+      <button class="go ghost" id="cancel">Cancelar</button>
+    </div>
+    <div class="note" id="msg"></div>
+  </div>
+  <div class="catalog-status" id="catalogStatus" role="status" aria-live="polite">Cargando artículos…</div>
+  <div class="head"><h2 id="title">Colección</h2><div class="admin-actions"><button class="go" id="newBtn" style="display:none">+ Nuevo artículo</button></div></div>
+  <div class="grid" id="grid"></div>
+</main>
+<div class="admin-modal" id="adminModal" role="dialog" aria-modal="true" aria-labelledby="adminModalTitle" hidden>
+  <div class="admin-modal__box">
+    <h2 id="adminModalTitle">Acceso del administrador</h2>
+    <label for="adminEmail">Correo electrónico</label>
+    <input id="adminEmail" type="email" value="acsports09@gmail.com" autocomplete="email">
+    <label for="adminPassword">Contraseña</label>
+    <input id="adminPassword" type="password" autocomplete="current-password">
+    <p class="admin-modal__error" id="adminPasswordError" role="alert"></p>
+    <div class="admin-modal__actions">
+      <button type="button" class="go" id="adminPasswordSubmit">Entrar</button>
+      <button type="button" class="go ghost" id="adminPasswordCancel">Cancelar</button>
+    </div>
+  </div>
+</div>
+<a class="whatsapp-float" id="whatsappFloat" aria-label="Escribir a AC Sports por WhatsApp" target="_blank" rel="noopener noreferrer">
+  <span id="whatsappFloatIcon" aria-hidden="true"></span>
+</a>
+<footer>
+  <div class="footer-brand">AC SPORTS · MOVIMIENTO CON PROPÓSITO</div>
+  <section class="footer-social" aria-labelledby="footerSocialTitle">
+    <h2 id="footerSocialTitle">Contáctanos</h2>
+    <div class="social-links" id="footerSocial" aria-label="Redes sociales de AC Sports"></div>
+    <span class="social-handle">@ac_sport9</span>
+  </section>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.57.4/dist/umd/supabase.min.js"></script>
+<script src="Estilo y Acciones/app.js"></script>
+</body>
+</html>
